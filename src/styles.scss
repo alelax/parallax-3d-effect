@@ -186,6 +186,20 @@ body {
 }
 /* END::Text-layers */
 
+/* START::Buttons-layers */
+.layer-buttons {
+  transform: translateX(-50%) translateY(-50%) translateZ(500px) scale(.95);
+  width: 40%;
+  height: 35%;
+  /*background-color: deeppink;
+  opacity: .4;*/
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
+/* END::Buttons-layers */
+
+/* START::Animations */
 .fade-in-out {
   &.fade-out {
     opacity: 0; // Opacità durante l'uscita
@@ -204,3 +218,34 @@ body {
     transform: scale(1);
   }
 }
+
+@keyframes pulseButton {
+  0% {
+    box-shadow: 0 0 0 0 white;
+  }
+  40% {
+    box-shadow: 0 0 0 50px rgba(255, 26, 67, 0);
+  }
+  80% {
+    box-shadow: 0 0 0 50px rgba(255, 206, 67, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 50px rgba(255, 206, 67, 0);
+  }
+}
+
+@keyframes smallPulseButton {
+  0% {
+    box-shadow: 0 0 0 0 white;
+  }
+  40% {
+    box-shadow: 0 0 0 15px rgba(255, 26, 67, 0);
+  }
+  80% {
+    box-shadow: 0 0 0 15px rgba(255, 206, 67, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 15px rgba(255, 206, 67, 0);
+  }
+}
+/* END::Animations */

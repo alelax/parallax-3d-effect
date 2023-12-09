@@ -57,20 +57,7 @@ import { CommonModule } from '@angular/common';
       }
     }
 
-    @keyframes pulseButton {
-      0% {
-        box-shadow: 0 0 0 0 white;
-      }
-      40% {
-        box-shadow: 0 0 0 50px rgba(255, 26, 67, 0);
-      }
-      80% {
-        box-shadow: 0 0 0 50px rgba(255, 206, 67, 0);
-      }
-      100% {
-        box-shadow: 0 0 0 50px rgba(255, 206, 67, 0);
-      }
-    }
+
   `]
 })
 export class LayerButtonComponent {
