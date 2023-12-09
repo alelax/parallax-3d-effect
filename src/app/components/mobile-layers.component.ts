@@ -11,7 +11,7 @@ import { LayersService } from "../services/layers.service";
     <section
       *ngIf="(layerService.currentScreen$ | async) as currentScreen"
       [ngClass]="{'fade-in-out': hasFadeInOut, 'fade-out': hasFadeOut}"
-      class="mobile-layers"
+      class="mobile-layers zoom-in"
     >
 
       <div class="mobile-layers__container">

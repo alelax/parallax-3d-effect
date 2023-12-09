@@ -117,6 +117,7 @@ body {
 }
 /* END::Desktop-layers */
 
+/* START::Text-layers */
 .layer-text {
   transform: translateZ(350px) scale(.95);
   display: flex;
@@ -183,9 +184,23 @@ body {
 
   }
 }
+/* END::Text-layers */
 
 .fade-in-out {
   &.fade-out {
     opacity: 0; // Opacità durante l'uscita
+  }
+}
+
+.zoom-in {
+  animation: zoomInAnimation .6s ease-out;
+}
+
+@keyframes zoomInAnimation {
+  from {
+    transform: scale(1.4);
+  }
+  to {
+    transform: scale(1);
   }
 }
