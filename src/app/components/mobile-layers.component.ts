@@ -40,6 +40,11 @@ import { LayersService } from "../services/layers.service";
         ></div>
         <!--END::front-layers-->
 
+        <div class="mobile-layers__item layer-text">
+          <h1 class="hero-content__h1">NON SOLO<br>CONSULENZE</h1>
+          <div class="hero-content__p">Studio Pentha Soluzioni</div>
+        </div>
+
       </div>
 
     </section>

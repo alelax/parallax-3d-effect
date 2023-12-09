@@ -10,19 +10,14 @@ import { LayerButtonComponent } from "./components/layer-button.component";
   standalone: true,
   imports: [CommonModule, DesktopLayersComponent, MobileLayersComponent, LayerButtonComponent],
   template: `
-    <app-desktop-layers
-      [hasFadeOut]="hasFadeOut"
-      class="desktop"
-    ></app-desktop-layers>
-    <app-mobile-layers
-      [hasFadeOut]="hasFadeOut"
-      class="mobile"
-    ></app-mobile-layers>
+    <app-desktop-layers [hasFadeOut]="hasFadeOut" class="desktop"></app-desktop-layers>
+    <app-mobile-layers [hasFadeOut]="hasFadeOut" class="mobile"></app-mobile-layers>
 
     <app-layer-button
       type="prev"
       (onScreenSlide)="startTransition(); layerService.prevPage()"
     ></app-layer-button>
+
     <app-layer-button
       type="next"
       (onScreenSlide)="startTransition(); layerService.nextPage()"
