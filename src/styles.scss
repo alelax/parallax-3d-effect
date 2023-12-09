@@ -1,1 +1,122 @@
 /* You can add global styles to this file, and also import other style files */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --index: calc(1vw + 1vh);
+  --transition: 1.5s cubic-bezier(.05, .5, 0, 1);
+}
+
+@font-face {
+  font-family: kamerik-3d;
+  src: url('assets/fonts/kamerik205-heavy.woff2');
+  font-weight: 900;
+}
+
+@font-face {
+  font-family: merriweather-italic-3d;
+  src: url('assets/fonts/merriweather-regular-italic.woff2');
+}
+
+body {
+  background-color: #000;
+  color: #fff;
+  font-family: kamerik-3d sans-serif;
+}
+
+/* START::Mobile-layers */
+.mobile-layers {
+  perspective: 1000px;
+  overflow: hidden;
+
+  @media screen and (min-width: 1200px) {
+    display: none;
+  }
+}
+
+.mobile-layers__container {
+  height: 100vh;
+  min-height: 500px;
+  transition: opacity var(--transition);
+  @media screen and (min-width: 1200px) {
+    display: none;
+  }
+}
+
+.mobile-layers__item {
+  position: absolute;
+  inset: -5vw;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &.desk {
+    width: 200%;
+    scale: .45;
+    left: -50%;
+    top: 7%;
+    transform: translateX(11px);
+  }
+
+  @media screen and (min-width: 1200px) {
+    display: none;
+  }
+
+}
+
+/* END::Mobile-layers */
+
+/* START::Desktop-layers */
+.layers {
+  display: none;
+  perspective: 1000px;
+  overflow: hidden;
+
+  @media screen and (min-width: 1200px) {
+    display: block;
+
+  }
+}
+
+.layers__container {
+  display: none;
+
+  @media screen and (min-width: 1200px) {
+    display: block;
+    height: 100vh;
+    min-height: 500px;
+    transform-style: preserve-3d;
+    transform: rotateX(var(--move-y)) rotateY(var(--move-x));
+    will-change: transform;
+    transition: transform, opacity var(--transition);
+  }
+
+}
+
+.layers__item {
+  display: none;
+
+  @media screen and (min-width: 1200px) {
+    position: absolute;
+    inset: -5vw;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+}
+/* END::Desktop-layers */
+
+
+.fade-in-out {
+  &.fade-out {
+    opacity: 0; // Opacità durante l'uscita
+  }
+}
