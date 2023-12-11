@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { LayerButtonComponent } from "./layer-button.component";
 import { LayersService } from "../services/layers.service";
 import { CircularButtonMenuComponent } from "./circular-button-menu.component";
+import { MenuType } from "../models/menu";
 
 @Component({
   selector: 'app-desktop-layers',
@@ -42,50 +43,6 @@ import { CircularButtonMenuComponent } from "./circular-button-menu.component";
         ></div>
         <!--END::Front-layer-->
 
-        <!--START::Buttons-layer-->
-        <!--<div class="layers__item layer-buttons">
-
-          &lt;!&ndash;START::Screen-button&ndash;&gt;
-          <app-circular-button-menu
-            [buttonPosition]="{ 'top': '24%', 'right': '43%' }"
-            [canvasSettings]="{ 'bottom': '50%', 'left': '50%', 'width': '150px', 'height': '50px' }"
-            [lineSettings]="{ 'startL1X': 0, 'startL1Y': '100%', 'endL1X': '50%', 'endL1Y': 0, 'endL2X': '100%', 'endL2Y': 0 }"
-          ></app-circular-button-menu>
-          &lt;!&ndash;END::Screen-button&ndash;&gt;
-
-          &lt;!&ndash;START::Mouse-button&ndash;&gt;
-          <app-circular-button-menu
-            [buttonPosition]="{ 'top': '52%', 'right': '40%' }"
-            [canvasSettings]="{ 'bottom': '50%', 'right': '50%', 'width': '200px', 'height': '135px' }"
-            [lineSettings]="{ 'startL1X': '100%', 'startL1Y': '100%', 'endL1X': '50%', 'endL1Y': 0, 'endL2X': 0, 'endL2Y': 0 }"
-          ></app-circular-button-menu>
-          &lt;!&ndash;END::Mouse-button&ndash;&gt;
-
-          &lt;!&ndash;START::Right-plant-button&ndash;&gt;
-          <app-circular-button-menu
-            [buttonPosition]="{ 'top': '45%', 'right': '25%' }"
-            [canvasSettings]="{ 'top': '50%', 'left': '50%', 'width': '150px', 'height': '100px' }"
-            [lineSettings]="{ 'startL1X': 0, 'startL1Y': 0, 'endL1X': '50%', 'endL1Y': '100%', 'endL2X': '100%', 'endL2Y': '100%' }"
-          ></app-circular-button-menu>
-          &lt;!&ndash;END::Right-plant-button&ndash;&gt;
-
-          &lt;!&ndash;START::Chair-plant-button&ndash;&gt;
-          <app-circular-button-menu
-            [buttonPosition]="{ 'bottom': '20%', 'left': '43%' }"
-            [canvasSettings]="{ 'top': '50%', 'left': '50%', 'width': '130px', 'height': '60px' }"
-          ></app-circular-button-menu>
-          &lt;!&ndash;END::Chair-plant-button&ndash;&gt;
-
-          &lt;!&ndash;START::Lamp-buttons&ndash;&gt;
-          <app-circular-button-menu
-            [buttonPosition]="{ 'top': '28%', 'left': '25%' }"
-            [canvasSettings]="{ 'bottom': '50%', 'right': '50%', 'width': '200px', 'height': '100px' }"
-
-          ></app-circular-button-menu>
-          &lt;!&ndash;END::Lamp-buttons&ndash;&gt;
-        </div>-->
-        <!--START::Buttons-layer-->
-
         <!--START::Text-layer-->
         <div class="layers__item layer-text">
           <h1 class="hero-content__h1">NON SOLO<br>CONSULENZE</h1>
@@ -114,16 +71,21 @@ import { CircularButtonMenuComponent } from "./circular-button-menu.component";
           <!--START::Screen-button-->
           <app-circular-button-menu
             [buttonPosition]="{ 'top': '33%', 'right': '42%' }"
-            [canvasSettings]="{ 'bottom': '50%', 'left': '50%', 'width': '150px', 'height': '50px' }"
-            [lineSettings]="{ 'startL1X': 0, 'startL1Y': '100%', 'endL1X': '50%', 'endL1Y': 3, 'endL2X': '100%', 'endL2Y': 3 }"
+            [canvasSettings]="{ 'bottom': '50%', 'left': '50%', 'width': '150px', 'height': '90px' }"
+            [menuSettings]="{ 'bottom': '50%', 'left': '50%', 'width': '150px', 'height': '90px', 'display': 'flex', 'justify-content': 'flex-end' }"
+            [menuContainerSettings]="{ 'width': '50%' }"
+            [lineSettings]="{ 'startL1X': 0, 'startL1Y': '100%', 'endL1X': '50%', 'endL1Y': '35%', 'endL2X': '100%', 'endL2Y': '35%' }"
+            [menuType]="MenuType.SCREEN"
           ></app-circular-button-menu>
           <!--END::Screen-button-->
 
           <!--START::Mouse-button-->
           <app-circular-button-menu
             [buttonPosition]="{ 'top': '51.5%', 'right': '42.5%' }"
-            [canvasSettings]="{ 'bottom': '50%', 'right': '50%', 'width': '200px', 'height': '135px' }"
-            [lineSettings]="{ 'startL1X': '100%', 'startL1Y': '100%', 'endL1X': '50%', 'endL1Y': 3, 'endL2X': 0, 'endL2Y': 3 }"
+            [canvasSettings]="{ 'bottom': '50%', 'right': '50%', 'width': '200px', 'height': '195px' }"
+            [menuSettings]="{ 'bottom': '610%', 'right': '600%', 'width': '150px', 'height': '90px', 'display': 'flex', 'justify-content': 'flex-end' }"
+            [lineSettings]="{ 'startL1X': '100%', 'startL1Y': '100%', 'endL1X': '50%', 'endL1Y': '12%', 'endL2X': 0, 'endL2Y': '12%' }"
+            [menuType]="MenuType.MOUSE"
           ></app-circular-button-menu>
           <!--END::Mouse-button-->
 
@@ -131,7 +93,10 @@ import { CircularButtonMenuComponent } from "./circular-button-menu.component";
           <app-circular-button-menu
             [buttonPosition]="{ 'top': '46%', 'right': '31%' }"
             [canvasSettings]="{ 'top': '50%', 'left': '50%', 'width': '150px', 'height': '100px' }"
+            [menuSettings]="{ 'top': '370%', 'left': '100%', 'width': '150px', 'height': '100px', 'display': 'flex', 'justify-content': 'flex-end' }"
+            [menuContainerSettings]="{ 'width': '55%' }"
             [lineSettings]="{ 'startL1X': 0, 'startL1Y': 0, 'endL1X': '50%', 'endL1Y': 97, 'endL2X': '100%', 'endL2Y': 97 }"
+            [menuType]="MenuType.PLANT"
           ></app-circular-button-menu>
           <!--END::Right-plant-button-->
 
@@ -139,7 +104,9 @@ import { CircularButtonMenuComponent } from "./circular-button-menu.component";
           <app-circular-button-menu
             [buttonPosition]="{ 'bottom': '30%', 'left': '43%' }"
             [canvasSettings]="{ 'top': '50%', 'left': '50%', 'width': '130px', 'height': '60px' }"
+            [menuSettings]="{ 'top': '170%', 'left': '10%', 'width': '150px', 'height': '100px', 'display': 'flex', 'justify-content': 'flex-end' }"
             [lineSettings]="{ 'startL1X': 0, 'startL1Y': 0, 'endL1X': '50%', 'endL1Y': '97%', 'endL2X': '100%', 'endL2Y': '97%' }"
+            [menuType]="MenuType.CHAIR"
           ></app-circular-button-menu>
           <!--END::Chair-button-->
 
@@ -147,7 +114,9 @@ import { CircularButtonMenuComponent } from "./circular-button-menu.component";
           <app-circular-button-menu
             [buttonPosition]="{ 'top': '38%', 'left': '27%' }"
             [canvasSettings]="{ 'bottom': '50%', 'right': '50%', 'width': '200px', 'height': '100px' }"
-            [lineSettings]="{ 'startL1X': '100%', 'startL1Y': '100%', 'endL1X': '50%', 'endL1Y': 3, 'endL2X': 0, 'endL2Y': 3 }"
+            [lineSettings]="{ 'startL1X': '100%', 'startL1Y': '100%', 'endL1X': '80%', 'endL1Y': '30%', 'endL2X': 0, 'endL2Y': '30%' }"
+            [menuSettings]="{ 'bottom': '75%', 'right': '300%', 'width': '250px', 'height': '100px', 'display': 'flex', 'justify-content': 'flex-end' }"
+            [menuType]="MenuType.LAMP"
           ></app-circular-button-menu>
           <!--END::Lamp-buttons-->
 
@@ -166,9 +135,10 @@ export class DesktopLayersComponent {
 
   @Input() hasFadeOut: boolean = false;
 
+  protected readonly MenuType = MenuType;
+
   hasFadeInOut: boolean = true;
 
+
   constructor(public layerService: LayersService) {}
-
-
 }

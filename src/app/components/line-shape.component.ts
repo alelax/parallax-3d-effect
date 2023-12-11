@@ -11,7 +11,8 @@ import { LineCoord } from "../models/lineCoord";
     <svg
       id="line-container"
       #svg
-      [ngStyle]="canvasSetupSettings"></svg>
+      [ngStyle]="canvasSetupSettings">
+    </svg>
   `,
   styles: [`
     #line-container {

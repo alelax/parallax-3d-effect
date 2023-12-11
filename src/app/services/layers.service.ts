@@ -103,9 +103,9 @@ export class LayersService {
         }
       ]
     }
-  ]
+  ];
 
-  data$: Observable<LayerData[]> = of(this.plainData)
+  data$: Observable<LayerData[]> = of(this.plainData);
 
   private currentPageSubject: BehaviorSubject<number> = new BehaviorSubject<number>(1);
   currentPage$ = this.currentPageSubject.asObservable();

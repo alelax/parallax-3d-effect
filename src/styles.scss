@@ -8,6 +8,7 @@
 :root {
   --index: calc(1vw + 1vh);
   --transition: 1.5s cubic-bezier(.05, .5, 0, 1);
+  --primary-color: #106570FF;
 }
 
 @font-face {
@@ -17,7 +18,7 @@
 }
 
 @font-face {
-  font-family: 'merriweather-italic-3d';
+  font-family: merriweather-italic-3d;
   src: url('./assets/fonts/merriweather-regular-italic.woff2') format('woff2');
 }
 
@@ -27,7 +28,7 @@ $font-secondary: 'merriweather-italic-3d';
 body {
   background-color: #000;
   color: #fff;
-  font-family: kamerik-3d sans-serif;
+  font-family: kamerik-3d, sans-serif;
 }
 
 /* START::Mobile-layers */
