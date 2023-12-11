@@ -113,7 +113,7 @@ import { CircularButtonMenuComponent } from "./circular-button-menu.component";
 
           <!--START::Screen-button-->
           <app-circular-button-menu
-            [buttonPosition]="{ 'top': '32%', 'right': '41%' }"
+            [buttonPosition]="{ 'top': '33%', 'right': '42%' }"
             [canvasSettings]="{ 'bottom': '50%', 'left': '50%', 'width': '150px', 'height': '50px' }"
             [lineSettings]="{ 'startL1X': 0, 'startL1Y': '100%', 'endL1X': '50%', 'endL1Y': 3, 'endL2X': '100%', 'endL2Y': 3 }"
           ></app-circular-button-menu>
@@ -129,7 +129,7 @@ import { CircularButtonMenuComponent } from "./circular-button-menu.component";
 
           <!--START::Right-plant-button-->
           <app-circular-button-menu
-            [buttonPosition]="{ 'top': '46%', 'right': '28%' }"
+            [buttonPosition]="{ 'top': '46%', 'right': '31%' }"
             [canvasSettings]="{ 'top': '50%', 'left': '50%', 'width': '150px', 'height': '100px' }"
             [lineSettings]="{ 'startL1X': 0, 'startL1Y': 0, 'endL1X': '50%', 'endL1Y': 97, 'endL2X': '100%', 'endL2Y': 97 }"
           ></app-circular-button-menu>
@@ -145,13 +145,15 @@ import { CircularButtonMenuComponent } from "./circular-button-menu.component";
 
           <!--START::Lamp-buttons-->
           <app-circular-button-menu
-            [buttonPosition]="{ 'top': '38%', 'left': '25%' }"
+            [buttonPosition]="{ 'top': '38%', 'left': '27%' }"
             [canvasSettings]="{ 'bottom': '50%', 'right': '50%', 'width': '200px', 'height': '100px' }"
             [lineSettings]="{ 'startL1X': '100%', 'startL1Y': '100%', 'endL1X': '50%', 'endL1Y': 3, 'endL2X': 0, 'endL2Y': 3 }"
           ></app-circular-button-menu>
           <!--END::Lamp-buttons-->
+
         </div>
         <!--START::Buttons-layer-->
+
       </div>
 
     </section>

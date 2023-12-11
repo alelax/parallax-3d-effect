@@ -42,6 +42,10 @@ export class LayersService {
         {
           styleOptionsDesktop: { 'transform': 'translateZ(160px) scale(.8)', 'background-image': 'url(assets/img/layers/1/giungla_a.png)' },
           styleOptionsMobile: { 'transform': 'translateZ(380px)', 'background-image': 'url(assets/img/layers/1/giungla_a.png)' }
+        },
+        {
+          styleOptionsDesktop: { 'transform': 'translateZ(200px) scale(.6)', 'background-image': 'url(assets/img/layers/1/foglie.png)' },
+          styleOptionsMobile: { 'transform': 'translateZ(380px)', 'background-image': 'url(assets/img/layers/1/foglie.png)' }
         }
       ]
     },
