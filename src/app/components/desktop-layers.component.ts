@@ -10,6 +10,7 @@ import { CircularButtonMenuComponent } from "./circular-button-menu.component";
   imports: [CommonModule, LayerButtonComponent, CircularButtonMenuComponent],
   template: `
 
+    <!--START::Main-layer-container-->
     <section
       *ngIf="(layerService.currentScreen$ | async) as currentScreen"
       [ngClass]="{'fade-in-out': hasFadeInOut, 'fade-out': hasFadeOut}"
@@ -28,7 +29,7 @@ import { CircularButtonMenuComponent } from "./circular-button-menu.component";
 
         <!--START::Desk-layer-->
         <div
-          [ngStyle]="{ 'transform': 'translateZ(190px) scale(.7)', 'background-image': 'url(assets/img/scrivania.png)' }"
+          [ngStyle]="{ 'transform': 'translateZ(144px) scale(.7)', 'background-image': 'url(assets/img/scrivania.png)' }"
           class="layers__item"
         ></div>
         <!--END::Desk-layer-->
@@ -42,38 +43,47 @@ import { CircularButtonMenuComponent } from "./circular-button-menu.component";
         <!--END::Front-layer-->
 
         <!--START::Buttons-layer-->
-        <div class="layers__item layer-buttons">
+        <!--<div class="layers__item layer-buttons">
 
-          <!--START::Screen-button-->
+          &lt;!&ndash;START::Screen-button&ndash;&gt;
           <app-circular-button-menu
             [buttonPosition]="{ 'top': '24%', 'right': '43%' }"
+            [canvasSettings]="{ 'bottom': '50%', 'left': '50%', 'width': '150px', 'height': '50px' }"
+            [lineSettings]="{ 'startL1X': 0, 'startL1Y': '100%', 'endL1X': '50%', 'endL1Y': 0, 'endL2X': '100%', 'endL2Y': 0 }"
           ></app-circular-button-menu>
-          <!--END::Screen-button-->
+          &lt;!&ndash;END::Screen-button&ndash;&gt;
 
-          <!--START::Mouse-button-->
+          &lt;!&ndash;START::Mouse-button&ndash;&gt;
           <app-circular-button-menu
             [buttonPosition]="{ 'top': '52%', 'right': '40%' }"
+            [canvasSettings]="{ 'bottom': '50%', 'right': '50%', 'width': '200px', 'height': '135px' }"
+            [lineSettings]="{ 'startL1X': '100%', 'startL1Y': '100%', 'endL1X': '50%', 'endL1Y': 0, 'endL2X': 0, 'endL2Y': 0 }"
           ></app-circular-button-menu>
-          <!--END::Mouse-button-->
+          &lt;!&ndash;END::Mouse-button&ndash;&gt;
 
-          <!--START::Right-plant-button-->
+          &lt;!&ndash;START::Right-plant-button&ndash;&gt;
           <app-circular-button-menu
             [buttonPosition]="{ 'top': '45%', 'right': '25%' }"
+            [canvasSettings]="{ 'top': '50%', 'left': '50%', 'width': '150px', 'height': '100px' }"
+            [lineSettings]="{ 'startL1X': 0, 'startL1Y': 0, 'endL1X': '50%', 'endL1Y': '100%', 'endL2X': '100%', 'endL2Y': '100%' }"
           ></app-circular-button-menu>
-          <!--END::Right-plant-button-->
+          &lt;!&ndash;END::Right-plant-button&ndash;&gt;
 
-          <!--START::Chair-plant-button-->
+          &lt;!&ndash;START::Chair-plant-button&ndash;&gt;
           <app-circular-button-menu
             [buttonPosition]="{ 'bottom': '20%', 'left': '43%' }"
+            [canvasSettings]="{ 'top': '50%', 'left': '50%', 'width': '130px', 'height': '60px' }"
           ></app-circular-button-menu>
-          <!--END::Chair-plant-button-->
+          &lt;!&ndash;END::Chair-plant-button&ndash;&gt;
 
-          <!--START::Lamp-buttons-->
+          &lt;!&ndash;START::Lamp-buttons&ndash;&gt;
           <app-circular-button-menu
             [buttonPosition]="{ 'top': '28%', 'left': '25%' }"
+            [canvasSettings]="{ 'bottom': '50%', 'right': '50%', 'width': '200px', 'height': '100px' }"
+
           ></app-circular-button-menu>
-          <!--END::Lamp-buttons-->
-        </div>
+          &lt;!&ndash;END::Lamp-buttons&ndash;&gt;
+        </div>-->
         <!--START::Buttons-layer-->
 
         <!--START::Text-layer-->
@@ -87,6 +97,65 @@ import { CircularButtonMenuComponent } from "./circular-button-menu.component";
       <!--END::Layers-container-->
 
     </section>
+    <!--END::Main-layer-container-->
+
+    <!--START::Secondary-layer-container-->
+    <section
+      *ngIf="(layerService.currentScreen$ | async) as currentScreen"
+      [ngClass]="{'fade-in-out': hasFadeInOut, 'fade-out': hasFadeOut}"
+      class="layers second"
+    >
+      <!--START::Layers-container-->
+      <div class="layers__container second">
+
+        <!--START::Buttons-layer-->
+        <div class="layers__item layer-buttons">
+
+          <!--START::Screen-button-->
+          <app-circular-button-menu
+            [buttonPosition]="{ 'top': '32%', 'right': '41%' }"
+            [canvasSettings]="{ 'bottom': '50%', 'left': '50%', 'width': '150px', 'height': '50px' }"
+            [lineSettings]="{ 'startL1X': 0, 'startL1Y': '100%', 'endL1X': '50%', 'endL1Y': 3, 'endL2X': '100%', 'endL2Y': 3 }"
+          ></app-circular-button-menu>
+          <!--END::Screen-button-->
+
+          <!--START::Mouse-button-->
+          <app-circular-button-menu
+            [buttonPosition]="{ 'top': '51.5%', 'right': '42.5%' }"
+            [canvasSettings]="{ 'bottom': '50%', 'right': '50%', 'width': '200px', 'height': '135px' }"
+            [lineSettings]="{ 'startL1X': '100%', 'startL1Y': '100%', 'endL1X': '50%', 'endL1Y': 3, 'endL2X': 0, 'endL2Y': 3 }"
+          ></app-circular-button-menu>
+          <!--END::Mouse-button-->
+
+          <!--START::Right-plant-button-->
+          <app-circular-button-menu
+            [buttonPosition]="{ 'top': '46%', 'right': '28%' }"
+            [canvasSettings]="{ 'top': '50%', 'left': '50%', 'width': '150px', 'height': '100px' }"
+            [lineSettings]="{ 'startL1X': 0, 'startL1Y': 0, 'endL1X': '50%', 'endL1Y': 97, 'endL2X': '100%', 'endL2Y': 97 }"
+          ></app-circular-button-menu>
+          <!--END::Right-plant-button-->
+
+          <!--START::Chair-button-->
+          <app-circular-button-menu
+            [buttonPosition]="{ 'bottom': '30%', 'left': '43%' }"
+            [canvasSettings]="{ 'top': '50%', 'left': '50%', 'width': '130px', 'height': '60px' }"
+            [lineSettings]="{ 'startL1X': 0, 'startL1Y': 0, 'endL1X': '50%', 'endL1Y': '97%', 'endL2X': '100%', 'endL2Y': '97%' }"
+          ></app-circular-button-menu>
+          <!--END::Chair-button-->
+
+          <!--START::Lamp-buttons-->
+          <app-circular-button-menu
+            [buttonPosition]="{ 'top': '38%', 'left': '25%' }"
+            [canvasSettings]="{ 'bottom': '50%', 'right': '50%', 'width': '200px', 'height': '100px' }"
+            [lineSettings]="{ 'startL1X': '100%', 'startL1Y': '100%', 'endL1X': '50%', 'endL1Y': 3, 'endL2X': 0, 'endL2Y': 3 }"
+          ></app-circular-button-menu>
+          <!--END::Lamp-buttons-->
+        </div>
+        <!--START::Buttons-layer-->
+      </div>
+
+    </section>
+    <!--SECONDARY::Secondary-layer-container-->
 
   `,
   styles: [``]

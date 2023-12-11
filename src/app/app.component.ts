@@ -48,6 +48,8 @@ export class AppComponent {
       style: `
         --move-x: ${(e.clientX - window.innerWidth / 2) * -.005}deg;
         --move-y: ${(e.clientY - window.innerHeight / 2) * .01}deg;
+        --move-invert-x: ${(-1 * ((e.clientX - window.innerWidth / 2) / 100)) }px;
+        --move-invert-y: ${(-1 * ((e.clientY - window.innerHeight / 2) / 50)) }px;
       `
     })
   }

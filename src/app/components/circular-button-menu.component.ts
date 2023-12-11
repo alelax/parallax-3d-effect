@@ -1,14 +1,27 @@
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { LineShapeComponent } from "./line-shape.component";
+import { LineCoord } from "../models/lineCoord";
 
 @Component({
   selector: 'app-circular-button-menu',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, LineShapeComponent],
   template: `
-    <div class="button-container"  [ngStyle]="buttonPosition" (mouseover)="loggingHover($event)">
+    <div class="button-container" [ngStyle]="buttonPosition" (mouseenter)="onMouseEnter($event)" (mouseleave)="onMouseleave($event)">
       <button><img src="assets/img/pulsante.svg" alt="circular-button-menu"></button>
+
+      <ng-container *ngIf="showLine">
+        <app-line-shape
+          *ngIf="canvasSettings && lineSettings"
+          [canvasSetupSettings]="canvasSettings"
+          [lineCoordinates]="lineSettings"
+        ></app-line-shape>
+      </ng-container>
+
     </div>
+
+
 
   `,
   styles: [`
@@ -39,9 +52,16 @@ import { CommonModule } from '@angular/common';
 export class CircularButtonMenuComponent {
 
   @Input() buttonPosition: {[key: string]: string} = {}
+  @Input() canvasSettings: {[key: string]: string} | null = null
+  @Input() lineSettings: LineCoord | null = null
 
-  loggingHover(evt: MouseEvent) {
-    console.log(evt);
+  showLine: boolean = false
 
+  onMouseEnter(evt: MouseEvent) {
+    this.showLine = true
+  }
+
+  onMouseleave($event: MouseEvent) {
+    this.showLine = false
   }
 }

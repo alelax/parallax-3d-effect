@@ -84,6 +84,15 @@ body {
     display: block;
 
   }
+
+  &.second {
+    @media screen and (min-width: 1200px) {
+      display: block;
+      position: absolute;
+      width: 100vw;
+      top: 0;
+    }
+  }
 }
 
 .layers__container {
@@ -99,6 +108,19 @@ body {
     transition: transform, opacity var(--transition);
   }
 
+  &.second {
+    display: none;
+
+    @media screen and (min-width: 1200px) {
+      display: block;
+      height: 100vh;
+      min-height: 500px;
+      transform-style: preserve-3d;
+      transform: translateX(var(--move-invert-x)) translateY(var(--move-invert-y));
+      will-change: transform;
+      transition: transform, opacity var(--transition);
+    }
+  }
 }
 
 .layers__item {
@@ -119,7 +141,7 @@ body {
 
 /* START::Text-layers */
 .layer-text {
-  transform: translateZ(350px) scale(.95);
+  transform: translateZ(390px) scale(.95);
   display: flex;
   flex-direction: column;
   position: absolute;
@@ -190,7 +212,7 @@ body {
 .layer-buttons {
   transform: translateX(-50%) translateY(-50%) translateZ(500px) scale(.95);
   width: 40%;
-  height: 35%;
+  height: 50%;
   /*background-color: deeppink;
   opacity: .4;*/
   position: absolute;

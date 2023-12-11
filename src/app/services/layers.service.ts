@@ -26,21 +26,21 @@ export class LayersService {
           styleOptionsMobile: { 'transform': 'translateZ(-55px)', 'background-image': 'url(assets/img/layers/1/sfondo_giungla.jpg)' }
         },
         {
-          styleOptionsDesktop: { 'transform': 'translateZ(80px) scale(.88)', 'background-image': 'url(assets/img/layers/1/giungla_d.png)' },
+          styleOptionsDesktop: { 'transform': 'translateZ(80px) scale(0.88)', 'background-image': 'url(assets/img/layers/1/giungla_d.png)' },
           styleOptionsMobile: { 'transform': 'translateZ(80px)', 'background-image': 'url(assets/img/layers/1/giungla_d.png)' }
         },
         {
-          styleOptionsDesktop: { 'transform': 'translateZ(180px) scale(.8)', 'background-image': 'url(assets/img/layers/1/giungla_c.png)' },
+          styleOptionsDesktop: { 'transform': 'translateZ(100px) scale(0.9)', 'background-image': 'url(assets/img/layers/1/giungla_c.png)' },
           styleOptionsMobile: { 'transform': 'translateZ(180)', 'background-image': 'url(assets/img/layers/1/giungla_c.png)' }
-        }
+        },
+        {
+          styleOptionsDesktop: { 'transform': 'translateZ(142px) scale(.86)', 'background-image': 'url(assets/img/layers/1/giungla_b.png)' },
+          styleOptionsMobile: { 'transform': 'translateZ(300px)', 'background-image': 'url(assets/img/layers/1/giungla_b.png)' }
+        },
       ],
       frontLayers: [
         {
-          styleOptionsDesktop: { 'transform': 'translateZ(300px) scale(.9)', 'background-image': 'url(assets/img/layers/1/giungla_b.png)' },
-          styleOptionsMobile: { 'transform': 'translateZ(300px)', 'background-image': 'url(assets/img/layers/1/giungla_b.png)' }
-        },
-        {
-          styleOptionsDesktop: { 'transform': 'translateZ(380px)', 'background-image': 'url(assets/img/layers/1/giungla_a.png)' },
+          styleOptionsDesktop: { 'transform': 'translateZ(160px) scale(.8)', 'background-image': 'url(assets/img/layers/1/giungla_a.png)' },
           styleOptionsMobile: { 'transform': 'translateZ(380px)', 'background-image': 'url(assets/img/layers/1/giungla_a.png)' }
         }
       ]
