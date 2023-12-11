@@ -14,7 +14,6 @@ import { ThreeCanvasComponent } from "./components/three-canvas.component";
     <app-desktop-layers [hasFadeOut]="hasFadeOut" class="desktop"></app-desktop-layers>
     <app-mobile-layers [hasFadeOut]="hasFadeOut" class="mobile"></app-mobile-layers>
 
-    <app-three-canvas></app-three-canvas>
     <app-layer-button
       type="prev"
       (onScreenSlide)="startTransition(); layerService.prevPage()"

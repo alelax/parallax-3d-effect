@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, OnDestroy, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, Input, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import * as THREE from 'three';
 
@@ -7,7 +7,7 @@ import * as THREE from 'three';
   standalone: true,
   imports: [CommonModule],
   template: `
-    <div #canvasContainer></div>
+    <div #canvasContainer [ngStyle]="{ 'width': canvasWidth, 'height': canvasHeight}"></div>
   `,
   styles: [`
     :host {
@@ -23,13 +23,18 @@ import * as THREE from 'three';
     }
 
     #canvasContainer {
-      width: 100%;  /* O la larghezza che preferisci */
-      height: 400px; /* O l'altezza che preferisci */
+      /*width: 100%;  !* O la larghezza che preferisci *!
+      height: 400px; !* O l'altezza che preferisci *!*/
       opacity: 0;
     }
   `]
 })
-export class ThreeCanvasComponent implements AfterViewInit, OnDestroy {
+export class ThreeCanvasComponent implements OnInit, AfterViewInit, OnDestroy {
+
+  @Input() coordX: string = '0';
+  @Input() coordY: string = '0';
+  @Input() canvasWidth: string = '0';
+  @Input() canvasHeight: string = '0';
 
   @ViewChild('canvasContainer', { static: false }) canvasContainer!: ElementRef;
 
@@ -37,6 +42,10 @@ export class ThreeCanvasComponent implements AfterViewInit, OnDestroy {
   private camera!: THREE.PerspectiveCamera;
   private renderer!: THREE.WebGLRenderer;
   private line!: THREE.Line;
+
+  ngOnInit() {
+
+  }
 
   ngAfterViewInit() {
     this.initThree();
