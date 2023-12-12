@@ -139,6 +139,5 @@ export class DesktopLayersComponent {
 
   hasFadeInOut: boolean = true;
 
-
   constructor(public layerService: LayersService) {}
 }

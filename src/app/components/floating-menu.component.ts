@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { AfterViewInit, Component, Input, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MenuType } from "../models/menu";
 import { MenuService } from "../services/menu.service";
@@ -10,6 +10,7 @@ import { MenuService } from "../services/menu.service";
   template: `
     <div
       id="menu-container"
+      [ngClass]="{ 'on-visible': onVisible }"
       *ngIf="(menuService.currentMenu$ | async) as menu"
       [ngStyle]="menuSetupSettings"
 
@@ -24,7 +25,10 @@ import { MenuService } from "../services/menu.service";
           <a [href]="menu[0].menuTitle.url" target="_blank">{{ menu[0].menuTitle.title }}</a>
         </div>
 
-        <div *ngIf="showMenuItems" class="menu-items">
+        <div
+          *ngIf="showMenuItems"
+          class="menu-items"
+        >
 
           <div class="link-container" *ngFor="let link of menu[0].links">
             <a class="main-link soft" [href]="link.mainLink.url" target="_blank">{{ link.mainLink.title }}</a>
@@ -51,9 +55,14 @@ import { MenuService } from "../services/menu.service";
       /*background-color: chartreuse;
       opacity: .4;*/
       z-index: 10;
+      opacity: 0;
+      transition: opacity 1s;
+
+      &.on-visible {
+        opacity: 1;
+      }
 
       & .menu-wrapper {
-
 
         height: fit-content;
 
@@ -83,7 +92,6 @@ import { MenuService } from "../services/menu.service";
         }
 
         & .menu-items {
-
           cursor: pointer;
           margin-bottom: 5px;
 
@@ -92,6 +100,11 @@ import { MenuService } from "../services/menu.service";
             width: 100%;
             font-family: sans-serif;
             font-size: 10px;
+            /*opacity: 0;
+            transition: opacity 3s;
+            &.on-visible {
+              opacity: 1;
+            }*/
 
             & .main-link {
               text-decoration: none;
@@ -138,20 +151,27 @@ import { MenuService } from "../services/menu.service";
     }
   `]
 })
-export class FloatingMenuComponent implements OnInit {
+export class FloatingMenuComponent implements OnInit, AfterViewInit {
   @Input() menuSetupSettings: {[key: string]: string} | null = null
   @Input() menuContainerSetupSettings: {[key: string]: string} | null = null
   @Input() menuType!: MenuType
 
   showMenuItems: boolean = false
+  onVisible: boolean = false
+  onVisibleItems: boolean = false
 
   constructor(public menuService: MenuService) {}
 
   toggleMenuItem($event: MouseEvent) {
-    this.showMenuItems = !this.showMenuItems
+    this.showMenuItems = !this.showMenuItems;
+    //this.onVisibleItems = !this.onVisibleItems;
   }
 
   ngOnInit(): void {
+    //this.onVisible = true;
+  }
 
+  ngAfterViewInit() {
+    this.onVisible = true;
   }
 }

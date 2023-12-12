@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { ChangeDetectorRef, Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LineShapeComponent } from "./line-shape.component";
 import { LineCoord } from "../models/lineCoord";
@@ -22,7 +22,7 @@ import { MenuService } from "../services/menu.service";
         ></app-line-shape>
       </ng-container>
 
-      <ng-container *ngIf="showLine">
+      <ng-container *ngIf="showMenu">
         <app-floating-menu
           [menuSetupSettings]="menuSettings"
           [menuContainerSetupSettings]="menuContainerSettings"
@@ -70,17 +70,26 @@ export class CircularButtonMenuComponent {
   @Input() menuType!: MenuType
 
   showLine: boolean = false
+  showMenu: boolean = false
 
-  constructor(private menuService: MenuService) {}
+  constructor(
+    private menuService: MenuService,
+    private cdr: ChangeDetectorRef
+  ) {}
 
   onMouseEnter(evt: MouseEvent) {
     this.menuService.setCurrentMenuType(this.menuType);
     this.showLine = true
+    setTimeout( () => {
+      this.showMenu = true
+      this.cdr.detectChanges();
+    }, 800)
   }
 
   onMouseleave($event: MouseEvent) {
     this.menuService.setCurrentMenuType(null);
     this.showLine = false
+    this.showMenu = false
   }
 
 }
