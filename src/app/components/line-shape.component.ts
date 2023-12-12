@@ -52,21 +52,33 @@ export class LineShapeComponent implements OnInit, AfterViewInit {
       // Assumendo che tu voglia la linea nella parte inferiore del contenitore SVG
       const lineY = 0; // 10 è un esempio, metti la distanza dal fondo che preferisci
 
-      svg.append('line') // Aggiungi un elemento linea
+      const diagonalLine = svg.append('line') // Aggiungi un elemento linea
         .style('stroke', 'white') // Imposta il colore della linea su bianco
         .style('stroke-width', 2) // Imposta la larghezza della linea
         .attr('x1', firstSegmentStartX) // Inizio della linea sull'asse X
         .attr('y1', firstSegmentStartY) // Inizio della linea sull'asse Y
-        .attr('x2', firstSegmentEndX) // Fine della linea sull'asse X
-        .attr('y2', firstSegmentEndY) // Fine della linea sull'asse Y
+        .attr('x2', firstSegmentStartX) // Fine della linea sull'asse X
+        .attr('y2', firstSegmentStartY) // Fine della linea sull'asse Y
 
-      svg.append('line')
+      diagonalLine.transition()
+        .duration(500)
+        .delay(0)
+        .attr('x2', firstSegmentEndX)
+        .attr('y2', firstSegmentEndY)
+
+      let horizontalLine = svg.append('line')
         .style('stroke', 'white') // Imposta il colore della linea su bianco
         .style('stroke-width', 2) // Imposta la larghezza della linea
         .attr('x1', secondSegmentStartX) // Inizio della linea sull'asse X
         .attr('y1', secondSegmentStartY) // Inizio della linea sull'asse Y
-        .attr('x2', secondSegmentEndX) // Fine della linea sull'asse X
-        .attr('y2', secondSegmentEndY) // Fine della linea sull'asse Y
+        .attr('x2', secondSegmentStartX) // Fine della linea sull'asse X
+        .attr('y2', secondSegmentStartY) // Fine della linea sull'asse Y
+
+      horizontalLine.transition()
+        .duration(300)
+        .delay(400)
+        .attr('x2', secondSegmentEndX)
+        .attr('y2', secondSegmentEndY)
     }
 
 
