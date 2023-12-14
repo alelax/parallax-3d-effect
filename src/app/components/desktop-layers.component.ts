@@ -51,6 +51,13 @@ import { ThreejsModelComponent } from "./threejs-model.component";
         </div>
         <!--End::Text-layer-->
 
+        <!--START::Desk-layer-->
+        <div
+          [ngStyle]="{ 'transform': 'translateZ(405px) scale(.46)', 'background-image': 'url(assets/img/layers/1/foglie.png)' }"
+          class="layers__item"
+        ></div>
+        <!--END::Desk-layer-->
+
       </div>
       <!--END::Layers-container-->
 
@@ -65,7 +72,7 @@ import { ThreejsModelComponent } from "./threejs-model.component";
     >
       <!--START::Layers-container-->
       <div class="layers__container second">
-        <app-threejs-model></app-threejs-model>
+        <!--<app-threejs-model></app-threejs-model>-->
         <!--START::Buttons-layer-->
         <div class="layers__item layer-buttons">
 
@@ -123,7 +130,6 @@ import { ThreejsModelComponent } from "./threejs-model.component";
 
         </div>
         <!--START::Buttons-layer-->
-
       </div>
 
     </section>
