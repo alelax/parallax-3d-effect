@@ -53,7 +53,7 @@ import { ThreejsModelComponent } from "./threejs-model.component";
 
         <!--START::Desk-layer-->
         <div
-          [ngStyle]="{ 'transform': 'translateZ(405px) scale(.46)', 'background-image': 'url(assets/img/layers/1/foglie.png)' }"
+          [ngStyle]="{ 'transform': 'translateX(-65px) translateZ(405px) scale(.4)', 'filter': 'blur(1px)', 'background-image': 'url(assets/img/layers/1/foglie.png)' }"
           class="layers__item"
         ></div>
         <!--END::Desk-layer-->

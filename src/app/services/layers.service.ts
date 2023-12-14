@@ -26,11 +26,11 @@ export class LayersService {
           styleOptionsMobile: { 'transform': 'translateZ(-55px)', 'background-image': 'url(assets/img/layers/1/sfondo_giungla.jpg)' }
         },
         {
-          styleOptionsDesktop: { 'transform': 'translateZ(80px) scale(0.88)', 'background-image': 'url(assets/img/layers/1/giungla_d.png)', 'opacity': '.8' },
+          styleOptionsDesktop: { 'transform': 'translateZ(80px) scale(0.88)', 'filter': 'blur(1px)', 'background-image': 'url(assets/img/layers/1/giungla_d.png)', 'opacity': '.8' },
           styleOptionsMobile: { 'transform': 'translateZ(80px)', 'background-image': 'url(assets/img/layers/1/giungla_d.png)' }
         },
         {
-          styleOptionsDesktop: { 'transform': 'translateZ(100px) scale(0.9)', 'background-image': 'url(assets/img/layers/1/giungla_c.png)' },
+          styleOptionsDesktop: { 'transform': 'translateZ(100px) scale(0.9)', 'filter': 'blur(1px)', 'background-image': 'url(assets/img/layers/1/giungla_c.png)' },
           styleOptionsMobile: { 'transform': 'translateZ(180)', 'background-image': 'url(assets/img/layers/1/giungla_c.png)' }
         },
         {
