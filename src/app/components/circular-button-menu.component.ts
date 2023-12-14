@@ -90,6 +90,9 @@ export class CircularButtonMenuComponent {
     this.menuService.setCurrentMenuType(null);
     this.showLine = false
     this.showMenu = false
+    setTimeout( () => {
+      this.showMenu = false
+    }, 900)
   }
 
 }

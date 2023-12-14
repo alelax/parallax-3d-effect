@@ -4,11 +4,12 @@ import { LayerButtonComponent } from "./layer-button.component";
 import { LayersService } from "../services/layers.service";
 import { CircularButtonMenuComponent } from "./circular-button-menu.component";
 import { MenuType } from "../models/menu";
+import { ThreejsModelComponent } from "./threejs-model.component";
 
 @Component({
   selector: 'app-desktop-layers',
   standalone: true,
-  imports: [CommonModule, LayerButtonComponent, CircularButtonMenuComponent],
+  imports: [CommonModule, LayerButtonComponent, CircularButtonMenuComponent, ThreejsModelComponent],
   template: `
 
     <!--START::Main-layer-container-->
@@ -64,7 +65,7 @@ import { MenuType } from "../models/menu";
     >
       <!--START::Layers-container-->
       <div class="layers__container second">
-
+        <app-threejs-model></app-threejs-model>
         <!--START::Buttons-layer-->
         <div class="layers__item layer-buttons">
 

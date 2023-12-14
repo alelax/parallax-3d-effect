@@ -22,11 +22,11 @@ export class LayersService {
       screen: 1,
       backLayers: [
         {
-          styleOptionsDesktop: { 'transform': 'translateZ(-55px) scale(1.06)', 'background-image': 'url(assets/img/layers/1/sfondo_giungla.jpg)' },
+          styleOptionsDesktop: { 'transform': 'translateZ(-55px) scale(1.06)', 'background-image': 'url(assets/img/layers/1/sfondo_giungla.jpg)', 'opacity': '.8' },
           styleOptionsMobile: { 'transform': 'translateZ(-55px)', 'background-image': 'url(assets/img/layers/1/sfondo_giungla.jpg)' }
         },
         {
-          styleOptionsDesktop: { 'transform': 'translateZ(80px) scale(0.88)', 'background-image': 'url(assets/img/layers/1/giungla_d.png)' },
+          styleOptionsDesktop: { 'transform': 'translateZ(80px) scale(0.88)', 'background-image': 'url(assets/img/layers/1/giungla_d.png)', 'opacity': '.8' },
           styleOptionsMobile: { 'transform': 'translateZ(80px)', 'background-image': 'url(assets/img/layers/1/giungla_d.png)' }
         },
         {
@@ -126,14 +126,12 @@ export class LayersService {
   nextPage() {
     let nextPage = this.currentPageSubject.value + 1;
     if (nextPage > this.numbersOfScreens) nextPage = 1;
-    console.log('nextPage: ', nextPage);
     this.setCurrentPage(nextPage);
   }
 
   prevPage() {
     let prevPage = this.currentPageSubject.value - 1;
     if (prevPage < 1) prevPage = this.numbersOfScreens;
-    console.log('prevPage: ', prevPage);
     this.setCurrentPage(prevPage);
   }
 

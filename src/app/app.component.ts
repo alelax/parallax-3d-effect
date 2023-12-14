@@ -4,11 +4,12 @@ import { DesktopLayersComponent } from "./components/desktop-layers.component";
 import { MobileLayersComponent } from "./components/mobile-layers.component";
 import { LayersService } from "./services/layers.service";
 import { LayerButtonComponent } from "./components/layer-button.component";
+import { ThreejsModelComponent } from "./components/threejs-model.component";
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, DesktopLayersComponent, MobileLayersComponent, LayerButtonComponent],
+  imports: [CommonModule, DesktopLayersComponent, MobileLayersComponent, LayerButtonComponent, ThreejsModelComponent],
   template: `
     <app-desktop-layers [hasFadeOut]="hasFadeOut" class="desktop"></app-desktop-layers>
     <app-mobile-layers [hasFadeOut]="hasFadeOut" class="mobile"></app-mobile-layers>
