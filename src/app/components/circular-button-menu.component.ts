@@ -5,32 +5,35 @@ import { LineCoord } from "../models/lineCoord";
 import { FloatingMenuComponent } from "./floating-menu.component";
 import { MenuType } from "../models/menu";
 import { MenuService } from "../services/menu.service";
+import { animate, state, style, transition, trigger } from "@angular/animations";
 
 @Component({
   selector: 'app-circular-button-menu',
   standalone: true,
   imports: [CommonModule, LineShapeComponent, FloatingMenuComponent],
   template: `
-    <div class="button-container" [ngStyle]="buttonPosition" (mouseenter)="onMouseEnter($event)" (mouseleave)="onMouseleave($event)">
-      <button><img src="assets/img/pulsante.svg" alt="circular-button-menu"></button>
+      <div class="button-container" [ngStyle]="buttonPosition" (mouseenter)="onMouseEnter($event)"
+           (mouseleave)="onMouseleave($event)">
+          <button><img src="assets/img/pulsante.svg" alt="circular-button-menu"></button>
 
-      <ng-container *ngIf="showLine">
-        <app-line-shape
-          *ngIf="canvasSettings && lineSettings"
-          [canvasSetupSettings]="canvasSettings"
-          [lineCoordinates]="lineSettings"
-        ></app-line-shape>
-      </ng-container>
+          <ng-container *ngIf="showLine">
+              <app-line-shape
+                      *ngIf="canvasSettings && lineSettings"
+                      [canvasSetupSettings]="canvasSettings"
+                      [lineCoordinates]="lineSettings"
+              ></app-line-shape>
+          </ng-container>
 
-      <ng-container *ngIf="showMenu">
-        <app-floating-menu
-          [menuSetupSettings]="menuSettings"
-          [menuContainerSetupSettings]="menuContainerSettings"
-          [menuType]="menuType"
-        ></app-floating-menu>
-      </ng-container>
+          <ng-container *ngIf="true">
+              <app-floating-menu
+                      [@menuAnimation]="state"
+                      [menuSetupSettings]="menuSettings"
+                      [menuContainerSetupSettings]="menuContainerSettings"
+                      [menuType]="menuType"
+              ></app-floating-menu>
+          </ng-container>
 
-    </div>
+      </div>
 
   `,
   styles: [`
@@ -39,6 +42,7 @@ import { MenuService } from "../services/menu.service";
       height: 20px;
       border-radius: 50%;
       position: absolute;
+
       &:hover {
         animation: smallPulseButton 1.5s 2 linear;
       }
@@ -56,43 +60,59 @@ import { MenuService } from "../services/menu.service";
 
       }
     }
-
-
-  `]
+  `],
+  animations: [
+    trigger('menuAnimation', [
+      state('hidden', style({
+        opacity: 0
+      })),
+      state('visible', style({
+        opacity: 1
+      })),
+      transition('hidden => visible', animate(1500)),
+      transition('visible => hidden', animate(100))
+    ])
+  ]
 })
 export class CircularButtonMenuComponent {
 
-  @Input() buttonPosition: {[key: string]: string} = {}
-  @Input() canvasSettings: {[key: string]: string} | null = null
-  @Input() menuSettings: {[key: string]: string} | null = null
-  @Input() menuContainerSettings: {[key: string]: string} | null = null
-  @Input() lineSettings: LineCoord | null = null
-  @Input() menuType!: MenuType
+  @Input() buttonPosition: { [key: string]: string } = {};
+  @Input() canvasSettings: { [key: string]: string } | null = null;
+  @Input() menuSettings: { [key: string]: string } | null = null;
+  @Input() menuContainerSettings: { [key: string]: string } | null = null;
+  @Input() lineSettings: LineCoord | null = null;
+  @Input() menuType!: MenuType;
 
-  showLine: boolean = false
-  showMenu: boolean = false
+  showLine: boolean = false;
+  showMenu: boolean = false;
+
+  state = 'hidden';
 
   constructor(
     private menuService: MenuService,
     private cdr: ChangeDetectorRef
-  ) {}
+  ) {
+  }
 
   onMouseEnter(evt: MouseEvent) {
     this.menuService.setCurrentMenuType(this.menuType);
-    this.showLine = true
-    setTimeout( () => {
+    this.showLine = true;
+    this.state = 'visible';
+    /*setTimeout( () => {
       this.showMenu = true
+
       this.cdr.detectChanges();
-    }, 800)
+    }, 800)*/
   }
 
   onMouseleave($event: MouseEvent) {
     this.menuService.setCurrentMenuType(null);
-    this.showLine = false
-    this.showMenu = false
-    setTimeout( () => {
+    this.showLine = false;
+    //this.showMenu = false
+    this.state = this.state === 'hidden' ? 'visible' : 'hidden';
+    /*setTimeout( () => {
       this.showMenu = false
-    }, 900)
+    }, 900)*/
   }
 
 }

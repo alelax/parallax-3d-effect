@@ -5,11 +5,12 @@ import { LayersService } from "../services/layers.service";
 import { CircularButtonMenuComponent } from "./circular-button-menu.component";
 import { MenuType } from "../models/menu";
 import { ThreejsModelComponent } from "./threejs-model.component";
+import { AudioPlayerComponent } from "./audio-player.component";
 
 @Component({
   selector: 'app-desktop-layers',
   standalone: true,
-  imports: [CommonModule, LayerButtonComponent, CircularButtonMenuComponent, ThreejsModelComponent],
+  imports: [CommonModule, LayerButtonComponent, CircularButtonMenuComponent, ThreejsModelComponent, AudioPlayerComponent],
   template: `
 
     <!--START::Main-layer-container-->
@@ -130,10 +131,14 @@ import { ThreejsModelComponent } from "./threejs-model.component";
 
         </div>
         <!--START::Buttons-layer-->
+
+        
       </div>
 
     </section>
     <!--SECONDARY::Secondary-layer-container-->
+
+    <app-audio-player [source]="'assets/audio/sample.mp3'"></app-audio-player>
 
   `,
   styles: [``]
@@ -147,4 +152,5 @@ export class DesktopLayersComponent {
   hasFadeInOut: boolean = true;
 
   constructor(public layerService: LayersService) {}
+
 }

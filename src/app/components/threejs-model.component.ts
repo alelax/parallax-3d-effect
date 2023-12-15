@@ -91,6 +91,8 @@ export class ThreejsModelComponent implements OnInit, AfterViewInit, OnDestroy{
       const rotationZ = THREE.MathUtils.degToRad(10);
       model.rotation.set(rotationX, rotationY, rotationZ);
 
+
+
       //////////////////////////////////
       this.scene.add(model);
       this.mixer = new THREE.AnimationMixer(model);
